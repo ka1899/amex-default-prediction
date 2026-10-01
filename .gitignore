@@ -1,0 +1,20 @@
+# Credentials — never commit
+kaggle.json
+.kaggle/
+
+# Data (download from Kaggle; see README)
+data/
+*.csv
+*.zip
+*.parquet
+!reports/tables/*.csv
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.ipynb_checkpoints/
+.DS_Store

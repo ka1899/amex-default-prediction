@@ -1,0 +1,18 @@
+name: tests
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt && pip install -e .
+      - run: pytest -q
+      # End-to-end smoke test on synthetic data (real data is not redistributable).
+      - run: MPLBACKEND=Agg python -m amex_ppi.run --synthetic --out /tmp/reports

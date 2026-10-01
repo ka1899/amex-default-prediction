@@ -1,0 +1,200 @@
+{
+  "data": "data/amex_sample.parquet",
+  "n_customers": 50000,
+  "n_features": 2014,
+  "default_rate": 0.25912,
+  "split_sizes": {
+    "train": 30000,
+    "val": 10000,
+    "test": 10000
+  },
+  "best_model": "LightGBM",
+  "model_comparison": {
+    "Logistic Regression|validation": {
+      "auc": 0.9449,
+      "gini": 0.8897,
+      "amex_m": 0.7285,
+      "brier": 0.0824,
+      "log_loss": 0.272
+    },
+    "Logistic Regression|test": {
+      "auc": 0.947,
+      "gini": 0.8939,
+      "amex_m": 0.7414,
+      "brier": 0.0796,
+      "log_loss": 0.2689
+    },
+    "Random Forest|validation": {
+      "auc": 0.9471,
+      "gini": 0.8941,
+      "amex_m": 0.7263,
+      "brier": 0.0815,
+      "log_loss": 0.2599
+    },
+    "Random Forest|test": {
+      "auc": 0.9499,
+      "gini": 0.8997,
+      "amex_m": 0.7397,
+      "brier": 0.0794,
+      "log_loss": 0.255
+    },
+    "LightGBM|validation": {
+      "auc": 0.9551,
+      "gini": 0.9102,
+      "amex_m": 0.7583,
+      "brier": 0.0743,
+      "log_loss": 0.2367
+    },
+    "LightGBM|test": {
+      "auc": 0.9574,
+      "gini": 0.9147,
+      "amex_m": 0.7792,
+      "brier": 0.0712,
+      "log_loss": 0.2298
+    }
+  },
+  "feature_ablation": {
+    "snapshot": {
+      "n_features": 233.0,
+      "auc": 0.9551,
+      "gini": 0.9102,
+      "amex_m": 0.7702,
+      "brier": 0.073,
+      "log_loss": 0.2345
+    },
+    "aggregate": {
+      "n_features": 952.0,
+      "auc": 0.9566,
+      "gini": 0.9133,
+      "amex_m": 0.7789,
+      "brier": 0.0716,
+      "log_loss": 0.2316
+    },
+    "trajectory": {
+      "n_features": 2014.0,
+      "auc": 0.9574,
+      "gini": 0.9147,
+      "amex_m": 0.7792,
+      "brier": 0.0712,
+      "log_loss": 0.2298
+    }
+  },
+  "horizon": {
+    "0": {
+      "statements_used": 13.0,
+      "auc": 0.9617,
+      "gini": 0.9234,
+      "amex_m": 0.7985,
+      "brier": 0.0643,
+      "log_loss": 0.209
+    },
+    "1": {
+      "statements_used": 12.0,
+      "auc": 0.9572,
+      "gini": 0.9145,
+      "amex_m": 0.7884,
+      "brier": 0.0686,
+      "log_loss": 0.2222
+    },
+    "2": {
+      "statements_used": 11.0,
+      "auc": 0.9508,
+      "gini": 0.9015,
+      "amex_m": 0.7564,
+      "brier": 0.0733,
+      "log_loss": 0.2373
+    },
+    "3": {
+      "statements_used": 10.0,
+      "auc": 0.9468,
+      "gini": 0.8935,
+      "amex_m": 0.74,
+      "brier": 0.0766,
+      "log_loss": 0.2468
+    },
+    "4": {
+      "statements_used": 9.0,
+      "auc": 0.9418,
+      "gini": 0.8836,
+      "amex_m": 0.7095,
+      "brier": 0.0805,
+      "log_loss": 0.2577
+    },
+    "5": {
+      "statements_used": 8.0,
+      "auc": 0.9375,
+      "gini": 0.875,
+      "amex_m": 0.7049,
+      "brier": 0.083,
+      "log_loss": 0.2653
+    },
+    "6": {
+      "statements_used": 7.0,
+      "auc": 0.9341,
+      "gini": 0.8682,
+      "amex_m": 0.6915,
+      "brier": 0.0858,
+      "log_loss": 0.2728
+    }
+  },
+  "calibration": {
+    "uncalibrated": {
+      "auc": 0.9573704756526363,
+      "gini": 0.9147409513052727,
+      "amex_m": 0.7792485455347664,
+      "brier": 0.07119295617903883,
+      "log_loss": 0.22976773461481456
+    },
+    "calibrated": {
+      "auc": 0.9569013069368781,
+      "gini": 0.9138026138737563,
+      "amex_m": 0.7792331815718359,
+      "brier": 0.0713350729118742,
+      "log_loss": 0.23053405343164232
+    }
+  },
+  "pricing_assumptions": {
+    "claim_amount": 5000.0,
+    "expense_ratio": 0.25,
+    "profit_margin": 0.15
+  },
+  "pricing": {
+    "target_loss_ratio": 0.6,
+    "experience_loss_ratio_calibrated": 0.5886153808087566,
+    "experience_loss_ratio_uncalibrated": 0.6044923558295534,
+    "experience_loss_ratio_flat": 0.5999228196552611,
+    "avg_premium_risk_based": 2200.92787623046,
+    "avg_premium_flat": 2159.444444444445
+  },
+  "intervention_assumptions": {
+    "cost": 200.0,
+    "success_rate": 0.3,
+    "claim_amount": 5000.0
+  },
+  "intervention": {
+    "threshold": 0.11,
+    "flagged": 3994,
+    "flagged_pct": 0.3994,
+    "true_positives": 2481,
+    "precision": 0.6211817726589884,
+    "recall": 0.95754534928599,
+    "prevented_defaults": 744.3,
+    "program_cost": 798800.0,
+    "claims_avoided": 3721500.0,
+    "net_savings": 2922700.0,
+    "roi": 3.658863294942414,
+    "breakeven_success_rate": 0.06439338976219267
+  },
+  "shap_top10": {
+    "P_2_last": 0.3996,
+    "P_2_3m_avg": 0.3521,
+    "P_2_min": 0.2105,
+    "P_2_mean": 0.2023,
+    "B_2_last": 0.1079,
+    "B_1_last": 0.0946,
+    "B_7_mean": 0.0776,
+    "D_62_min": 0.0677,
+    "B_9_last": 0.0676,
+    "B_37_last": 0.0662
+  }
+}
